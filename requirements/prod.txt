@@ -37,3 +37,5 @@ commonware
 -e git://github.com/mozilla/nuggets.git#egg=nuggets
 https://github.com/jessemiller/HamlPy/tarball/master
 grappelli
+
+bpython
