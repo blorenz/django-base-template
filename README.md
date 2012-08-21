@@ -24,19 +24,12 @@ base app)
 
 Templating:
 
-- Jinja2 for templates
- - jingo to tie Jinja2 into Django
 - Markdown
 
 Security:
 
-- django-session-csrf
 - bleach
 - python-bcrypt2 - uses bcrypt for password hashing by default
-
-Background Tasks:
-
-- Celery
 
 Migrations:
 

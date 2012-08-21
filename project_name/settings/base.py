@@ -37,9 +37,7 @@ SITE_ID = 1
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 INSTALLED_APPS = [
-    # Template apps
-    'jingo_minify',
-
+    'grappelli',
     # Django contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +55,6 @@ INSTALLED_APPS = [
     'commonware.response.cookies',
     'djcelery',
     'django_nose',
-    'session_csrf',
     'debug_toolbar',
     #'debug_toolbar_user_panel',
     #'memcache_toolbar',
@@ -141,7 +138,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'session_csrf.CsrfMiddleware',  # Must be after auth middleware.
     'django.contrib.messages.middleware.MessageMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -154,7 +150,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.request',
     'django.core.context_processors.i18n',
     'django.core.context_processors.static',
-    'session_csrf.context_processor',
     'django.contrib.messages.context_processors.messages',
     #'jingo_minify.helpers.build_ids',
 ]
@@ -169,7 +164,8 @@ TEMPLATE_DIRS = (
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'jingo.Loader',
+    'hamlpy.template.loaders.HamlPyFilesystemLoader',
+    'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
@@ -212,15 +208,8 @@ DEBUG_TOOLBAR_PANELS = (
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
-# Because Jinja2 is the default template loader, add any non-Jinja templated
-# apps here:
-JINGO_EXCLUDE_APPS = [
-    'admin',
-    'registration',
-    'debug_toolbar',
-    'debug_toolbar_user_panel',
-    'memcache_toolbar',
-]
-
 # The WSGI Application to use for runserver
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+#WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+
+
+GRAPPELLI_ADMIN_TITLE = "{{ project_name }} Admin"

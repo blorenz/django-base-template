@@ -5,21 +5,16 @@
 Django>=1.4
 
 # Templates
-jingo
-jingo-minify
 Markdown
 
 # Security
 bleach
-django-session-csrf
 #cef
 
 # Logging
 #raven
 
 # Celery: Message queue
-celery
-django-celery
 
 # L10n/i18n
 #Babel
@@ -40,4 +35,5 @@ South
 # Various tidbits
 commonware
 -e git://github.com/mozilla/nuggets.git#egg=nuggets
-
+https://github.com/jessemiller/HamlPy/tarball/master
+grappelli
